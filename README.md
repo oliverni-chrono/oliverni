@@ -4,8 +4,8 @@
 
 ## 🌟 在线访问
 
-- **主页**: [https://oliverni-chrono.github.io/shirley-intro/](https://oliverni-chrono.github.io/shirley-intro/)
-- **个人介绍**: [https://oliverni-chrono.github.io/shirley-intro/shirley-summary/](https://oliverni-chrono.github.io/shirley-intro/shirley-summary/)
+- **主页**: [https://oliverni-chrono.github.io/oliverni/](https://oliverni-chrono.github.io/oliverni/)
+- **个人介绍**: [https://oliverni-chrono.github.io/oliverni/shirley-summary/](https://oliverni-chrono.github.io/oliverni/shirley-summary/)
 
 ## 📱 特性
 
@@ -19,7 +19,7 @@
 ## 📁 项目结构
 
 ```
-shirley-intro/
+oliverni/
 ├── index.html              # 项目导航页
 ├── shirley-summary/        # Shirley 个人介绍
 │   └── index.html         # 介绍页面主文件
@@ -32,8 +32,8 @@ shirley-intro/
 
 ```bash
 # 克隆仓库
-git clone https://github.com/oliverni-chrono/shirley-intro.git
-cd shirley-intro
+git clone https://github.com/oliverni-chrono/oliverni.git
+cd oliverni
 
 # 在浏览器中打开
 open shirley-summary/index.html

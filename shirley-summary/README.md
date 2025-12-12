@@ -12,7 +12,7 @@
 
 ## 🌐 在线访问
 
-访问此页面: [https://oliverni-chrono.github.io/shirley-intro/shirley-summary/](https://oliverni-chrono.github.io/shirley-intro/shirley-summary/)
+访问此页面: [https://oliverni-chrono.github.io/oliverni/shirley-summary/](https://oliverni-chrono.github.io/oliverni/shirley-summary/)
 
 ## 🎨 设计特色
 
