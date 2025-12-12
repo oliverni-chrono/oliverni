@@ -4,7 +4,7 @@
 
 ## 🌟 在线访问
 
-访问 GitHub Pages: [https://oliverni-chrono.github.io/shirley-intro/](https://[your-username].github.io/shirley-intro/)
+访问 GitHub Pages: [https://oliverni-chrono.github.io/shirley-intro/](https://oliverni-chrono.github.io/shirley-intro/)
 
 ## 📱 特性
 
