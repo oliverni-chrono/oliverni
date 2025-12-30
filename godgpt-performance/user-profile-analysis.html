@@ -1241,35 +1241,63 @@
             <p class="slide-subtitle">Positive & Negative Sentiment Keywords</p>
             
             <div style="max-width: 1400px; width: 100%; display: grid; grid-template-columns: 1fr 1fr; gap: 64px; margin-top: 48px;">
-                <!-- Positive Keywords -->
+                <!-- Positive Keywords Cloud -->
                 <div style="display: flex; flex-direction: column; align-items: center;">
                     <h3 style="font-size: 32px; font-weight: 700; margin-bottom: 40px; color: #4CAF50;">✨ Positive Sentiment</h3>
                     
-                    <div style="width: 100%; min-height: 400px; background: rgba(26, 26, 26, 0.6); border-radius: var(--radius-card); padding: 48px; display: flex; flex-wrap: wrap; align-items: center; justify-content: center; gap: 24px; border: 2px solid rgba(76, 175, 80, 0.3);">
-                        <span style="font-size: 48px; font-weight: 700; color: #4CAF50;">spiritual guide</span>
-                        <span style="font-size: 36px; font-weight: 600; color: #66BB6A;">Mystical</span>
-                        <span style="font-size: 42px; font-weight: 700; color: #81C784;">self-reflection</span>
-                        <span style="font-size: 32px; font-weight: 600; color: #A5D6A7;">coach</span>
-                        <span style="font-size: 38px; font-weight: 700; color: #4CAF50;">Wellness</span>
-                        <span style="font-size: 34px; font-weight: 600; color: #66BB6A;">companion</span>
-                        <span style="font-size: 44px; font-weight: 700; color: #81C784;">Emotionally supported</span>
-                        <span style="font-size: 40px; font-weight: 600; color: #A5D6A7;">Unique</span>
-                        <span style="font-size: 36px; font-weight: 700; color: #4CAF50;">Calm & comfort</span>
-                        <span style="font-size: 30px; font-weight: 600; color: #66BB6A;">vibe</span>
+                    <div style="width: 100%; min-height: 450px; position: relative;">
+                        <!-- Cloud shape bubbles -->
+                        <div style="position: absolute; top: 20px; left: 10%; width: 280px; height: 140px; background: linear-gradient(135deg, rgba(76, 175, 80, 0.3), rgba(102, 187, 106, 0.2)); border-radius: 50% 50% 50% 50% / 60% 60% 40% 40%; display: flex; align-items: center; justify-content: center; transform: rotate(-5deg); box-shadow: 0 4px 12px rgba(76, 175, 80, 0.3);">
+                            <span style="font-size: 42px; font-weight: 700; color: #4CAF50; transform: rotate(5deg);">spiritual guide</span>
+                        </div>
+                        
+                        <div style="position: absolute; top: 50px; right: 8%; width: 200px; height: 120px; background: linear-gradient(135deg, rgba(102, 187, 106, 0.3), rgba(129, 199, 132, 0.2)); border-radius: 45% 55% 50% 50% / 55% 50% 50% 45%; display: flex; align-items: center; justify-content: center; transform: rotate(8deg); box-shadow: 0 4px 12px rgba(102, 187, 106, 0.3);">
+                            <span style="font-size: 36px; font-weight: 600; color: #66BB6A; transform: rotate(-8deg);">Mystical</span>
+                        </div>
+                        
+                        <div style="position: absolute; top: 180px; left: 5%; width: 240px; height: 130px; background: linear-gradient(135deg, rgba(129, 199, 132, 0.3), rgba(165, 214, 167, 0.2)); border-radius: 50% 50% 50% 50% / 50% 50% 60% 60%; display: flex; flex-direction: column; align-items: center; justify-content: center; transform: rotate(-3deg); box-shadow: 0 4px 12px rgba(129, 199, 132, 0.3);">
+                            <span style="font-size: 32px; font-weight: 700; color: #81C784; text-align: center;">self-reflection<br/>coach</span>
+                        </div>
+                        
+                        <div style="position: absolute; top: 190px; right: 12%; width: 220px; height: 110px; background: linear-gradient(135deg, rgba(165, 214, 167, 0.3), rgba(76, 175, 80, 0.2)); border-radius: 55% 45% 50% 50% / 60% 40% 60% 40%; display: flex; align-items: center; justify-content: center; transform: rotate(5deg); box-shadow: 0 4px 12px rgba(165, 214, 167, 0.3);">
+                            <span style="font-size: 34px; font-weight: 700; color: #A5D6A7; transform: rotate(-5deg);">Wellness</span>
+                        </div>
+                        
+                        <div style="position: absolute; bottom: 20px; left: 15%; width: 300px; height: 140px; background: linear-gradient(135deg, rgba(76, 175, 80, 0.3), rgba(102, 187, 106, 0.2)); border-radius: 50% 50% 55% 45% / 50% 50% 55% 45%; display: flex; flex-direction: column; align-items: center; justify-content: center; transform: rotate(-8deg); box-shadow: 0 4px 12px rgba(76, 175, 80, 0.3);">
+                            <span style="font-size: 38px; font-weight: 700; color: #4CAF50; text-align: center;">Emotionally<br/>supported</span>
+                        </div>
+                        
+                        <div style="position: absolute; bottom: 40px; right: 5%; width: 200px; height: 110px; background: linear-gradient(135deg, rgba(102, 187, 106, 0.3), rgba(129, 199, 132, 0.2)); border-radius: 50% 50% 50% 50% / 45% 55% 45% 55%; display: flex; flex-direction: column; align-items: center; justify-content: center; transform: rotate(10deg); box-shadow: 0 4px 12px rgba(102, 187, 106, 0.3);">
+                            <span style="font-size: 32px; font-weight: 600; color: #66BB6A; text-align: center; transform: rotate(-10deg);">Calm &<br/>comfort</span>
+                        </div>
                     </div>
                 </div>
 
-                <!-- Negative Keywords -->
+                <!-- Negative Keywords Cloud -->
                 <div style="display: flex; flex-direction: column; align-items: center;">
                     <h3 style="font-size: 32px; font-weight: 700; margin-bottom: 40px; color: #F44336;">⚠️ Negative Sentiment</h3>
                     
-                    <div style="width: 100%; min-height: 400px; background: rgba(26, 26, 26, 0.6); border-radius: var(--radius-card); padding: 48px; display: flex; flex-wrap: wrap; align-items: center; justify-content: center; gap: 24px; border: 2px solid rgba(244, 67, 54, 0.3);">
-                        <span style="font-size: 42px; font-weight: 700; color: #F44336;">Abstract</span>
-                        <span style="font-size: 38px; font-weight: 600; color: #EF5350;">Cryptic</span>
-                        <span style="font-size: 44px; font-weight: 700; color: #E57373;">Hard to understand</span>
-                        <span style="font-size: 36px; font-weight: 600; color: #EF9A9A;">Not practical</span>
-                        <span style="font-size: 40px; font-weight: 700; color: #F44336;">Inconsistency</span>
-                        <span style="font-size: 32px; font-weight: 600; color: #EF5350;">persona style</span>
+                    <div style="width: 100%; min-height: 450px; position: relative;">
+                        <!-- Cloud shape bubbles -->
+                        <div style="position: absolute; top: 30px; left: 8%; width: 260px; height: 130px; background: linear-gradient(135deg, rgba(244, 67, 54, 0.3), rgba(239, 83, 80, 0.2)); border-radius: 50% 50% 50% 50% / 55% 60% 40% 45%; display: flex; align-items: center; justify-content: center; transform: rotate(6deg); box-shadow: 0 4px 12px rgba(244, 67, 54, 0.3);">
+                            <span style="font-size: 38px; font-weight: 700; color: #F44336; transform: rotate(-6deg);">Abstract</span>
+                        </div>
+                        
+                        <div style="position: absolute; top: 40px; right: 10%; width: 200px; height: 120px; background: linear-gradient(135deg, rgba(239, 83, 80, 0.3), rgba(229, 115, 115, 0.2)); border-radius: 45% 55% 48% 52% / 50% 50% 50% 50%; display: flex; align-items: center; justify-content: center; transform: rotate(-7deg); box-shadow: 0 4px 12px rgba(239, 83, 80, 0.3);">
+                            <span style="font-size: 34px; font-weight: 600; color: #EF5350; transform: rotate(7deg);">Cryptic</span>
+                        </div>
+                        
+                        <div style="position: absolute; top: 170px; left: 5%; width: 280px; height: 140px; background: linear-gradient(135deg, rgba(229, 115, 115, 0.3), rgba(239, 154, 154, 0.2)); border-radius: 50% 50% 50% 50% / 60% 40% 60% 40%; display: flex; align-items: center; justify-content: center; transform: rotate(-4deg); box-shadow: 0 4px 12px rgba(229, 115, 115, 0.3);">
+                            <span style="font-size: 36px; font-weight: 700; color: #E57373; text-align: center; transform: rotate(4deg);">Hard to<br/>understand</span>
+                        </div>
+                        
+                        <div style="position: absolute; top: 200px; right: 8%; width: 220px; height: 110px; background: linear-gradient(135deg, rgba(239, 154, 154, 0.3), rgba(244, 67, 54, 0.2)); border-radius: 55% 45% 50% 50% / 50% 50% 60% 40%; display: flex; align-items: center; justify-content: center; transform: rotate(9deg); box-shadow: 0 4px 12px rgba(239, 154, 154, 0.3);">
+                            <span style="font-size: 30px; font-weight: 600; color: #EF9A9A; text-align: center; transform: rotate(-9deg);">Not<br/>practical</span>
+                        </div>
+                        
+                        <div style="position: absolute; bottom: 30px; left: 12%; width: 240px; height: 125px; background: linear-gradient(135deg, rgba(244, 67, 54, 0.3), rgba(239, 83, 80, 0.2)); border-radius: 50% 50% 55% 45% / 48% 52% 48% 52%; display: flex; flex-direction: column; align-items: center; justify-content: center; transform: rotate(-6deg); box-shadow: 0 4px 12px rgba(244, 67, 54, 0.3);">
+                            <span style="font-size: 34px; font-weight: 700; color: #F44336; text-align: center; transform: rotate(6deg);">Inconsistency</span>
+                        </div>
                     </div>
                 </div>
             </div>
