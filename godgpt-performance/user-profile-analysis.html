@@ -913,43 +913,88 @@
         <!-- Slide 3: Demographics Breakdown -->
         <div class="slide slide-3" data-slide="3">
             <h2 class="slide-title">Demographics Breakdown</h2>
-            <p class="slide-subtitle">Gender & Platform Distribution</p>
+            <p class="slide-subtitle">Gender, Platform & Age Distribution</p>
             
-            <div class="demographics-content">
-                <!-- Gender Section -->
-                <div class="demo-section">
-                    <h3 class="section-title">Gender Split</h3>
-                    <div class="pie-chart gender-chart" style="position: relative;">
-                        <div style="position: absolute; top: 50%; right: 25%; transform: translate(50%, -50%); text-align: center;">
-                            <div style="font-size: 28px; font-weight: 700; color: white; text-shadow: 0 2px 4px rgba(0,0,0,0.5);">58%</div>
-                            <div style="font-size: 12px; color: white; text-shadow: 0 2px 4px rgba(0,0,0,0.5); margin-top: 4px;">Male</div>
+            <div style="max-width: 1400px; width: 100%; display: grid; grid-template-columns: 1fr 1fr; gap: 64px; margin-top: 48px;">
+                <!-- Left Half: Gender and Platform Split Stacked -->
+                <div style="display: flex; flex-direction: column; gap: 48px;">
+                    <!-- Gender Section -->
+                    <div class="demo-section">
+                        <h3 class="section-title">Gender Split</h3>
+                        <div class="pie-chart gender-chart" style="position: relative;">
+                            <div style="position: absolute; top: 50%; right: 25%; transform: translate(50%, -50%); text-align: center;">
+                                <div style="font-size: 28px; font-weight: 700; color: white; text-shadow: 0 2px 4px rgba(0,0,0,0.5);">58%</div>
+                                <div style="font-size: 12px; color: white; text-shadow: 0 2px 4px rgba(0,0,0,0.5); margin-top: 4px;">Male</div>
+                            </div>
+                            <div style="position: absolute; top: 50%; left: 35%; transform: translate(-50%, -50%); text-align: center;">
+                                <div style="font-size: 28px; font-weight: 700; color: white; text-shadow: 0 2px 4px rgba(0,0,0,0.5);">42%</div>
+                                <div style="font-size: 12px; color: white; text-shadow: 0 2px 4px rgba(0,0,0,0.5); margin-top: 4px;">Female</div>
+                            </div>
                         </div>
-                        <div style="position: absolute; top: 50%; left: 35%; transform: translate(-50%, -50%); text-align: center;">
-                            <div style="font-size: 28px; font-weight: 700; color: white; text-shadow: 0 2px 4px rgba(0,0,0,0.5);">42%</div>
-                            <div style="font-size: 12px; color: white; text-shadow: 0 2px 4px rgba(0,0,0,0.5); margin-top: 4px;">Female</div>
+                    </div>
+
+                    <!-- Platform Section -->
+                    <div class="demo-section">
+                        <h3 class="section-title">Platform Split</h3>
+                        <div class="pie-chart platform-chart" style="position: relative; background: conic-gradient(from 0deg, var(--color-primary) 0% 55%, var(--color-secondary) 55% 90%, #999999 90% 100%);">
+                            <!-- Web app label (largest segment, top-right) -->
+                            <div style="position: absolute; top: 35%; right: 20%; transform: translate(0%, -50%); text-align: center;">
+                                <div style="font-size: 28px; font-weight: 700; color: white; text-shadow: 0 2px 4px rgba(0,0,0,0.5);">55%</div>
+                                <div style="font-size: 12px; color: white; text-shadow: 0 2px 4px rgba(0,0,0,0.5); margin-top: 4px;">Web app</div>
+                            </div>
+                            <!-- iOS label (second segment, bottom) -->
+                            <div style="position: absolute; bottom: 25%; right: 30%; transform: translate(50%, 0%); text-align: center;">
+                                <div style="font-size: 28px; font-weight: 700; color: white; text-shadow: 0 2px 4px rgba(0,0,0,0.5);">35%</div>
+                                <div style="font-size: 12px; color: white; text-shadow: 0 2px 4px rgba(0,0,0,0.5); margin-top: 4px;">iOS</div>
+                            </div>
+                            <!-- Android label (smallest segment, bottom-left) -->
+                            <div style="position: absolute; bottom: 30%; left: 25%; text-align: center;">
+                                <div style="font-size: 20px; font-weight: 700; color: white; text-shadow: 0 2px 4px rgba(0,0,0,0.5);">8%</div>
+                                <div style="font-size: 10px; color: white; text-shadow: 0 2px 4px rgba(0,0,0,0.5); margin-top: 2px;">Android</div>
+                            </div>
                         </div>
                     </div>
                 </div>
 
-                <!-- Platform Section -->
+                <!-- Right Half: Age Distribution -->
                 <div class="demo-section">
-                    <h3 class="section-title">Platform Split</h3>
-                    <div class="pie-chart platform-chart" style="position: relative; background: conic-gradient(from 0deg, var(--color-primary) 0% 55%, var(--color-secondary) 55% 90%, #999999 90% 100%);">
-                        <!-- Web app label (largest segment, top-right) -->
-                        <div style="position: absolute; top: 35%; right: 20%; transform: translate(0%, -50%); text-align: center;">
-                            <div style="font-size: 28px; font-weight: 700; color: white; text-shadow: 0 2px 4px rgba(0,0,0,0.5);">55%</div>
-                            <div style="font-size: 12px; color: white; text-shadow: 0 2px 4px rgba(0,0,0,0.5); margin-top: 4px;">Web app</div>
+                    <h3 class="section-title">Age Distribution</h3>
+                    <div class="age-bars">
+                        <div class="age-bar-item">
+                            <span class="age-label">18-24</span>
+                            <div class="age-bar-container">
+                                <div class="age-bar-fill" style="width: 26%;">9%</div>
+                            </div>
                         </div>
-                        <!-- iOS label (second segment, bottom) -->
-                        <div style="position: absolute; bottom: 25%; right: 30%; transform: translate(50%, 0%); text-align: center;">
-                            <div style="font-size: 28px; font-weight: 700; color: white; text-shadow: 0 2px 4px rgba(0,0,0,0.5);">35%</div>
-                            <div style="font-size: 12px; color: white; text-shadow: 0 2px 4px rgba(0,0,0,0.5); margin-top: 4px;">iOS</div>
+                        <div class="age-bar-item">
+                            <span class="age-label">25-34</span>
+                            <div class="age-bar-container">
+                                <div class="age-bar-fill" style="width: 100%;">35%</div>
+                            </div>
                         </div>
-                        <!-- Android label (smallest segment, bottom-left) -->
-                        <div style="position: absolute; bottom: 30%; left: 25%; text-align: center;">
-                            <div style="font-size: 20px; font-weight: 700; color: white; text-shadow: 0 2px 4px rgba(0,0,0,0.5);">8%</div>
-                            <div style="font-size: 10px; color: white; text-shadow: 0 2px 4px rgba(0,0,0,0.5); margin-top: 2px;">Android</div>
+                        <div class="age-bar-item">
+                            <span class="age-label">35-44</span>
+                            <div class="age-bar-container">
+                                <div class="age-bar-fill" style="width: 89%;">31%</div>
+                            </div>
                         </div>
+                        <div class="age-bar-item">
+                            <span class="age-label">45-54</span>
+                            <div class="age-bar-container">
+                                <div class="age-bar-fill" style="width: 49%;">17%</div>
+                            </div>
+                        </div>
+                        <div class="age-bar-item">
+                            <span class="age-label">55+</span>
+                            <div class="age-bar-container">
+                                <div class="age-bar-fill" style="width: 23%;">8%</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div style="margin-top: 48px; padding: var(--spacing-lg); background: rgba(254, 87, 6, 0.1); border-radius: var(--radius-button); border-left: 4px solid var(--color-primary);">
+                        <div style="font-size: var(--font-size-base); color: var(--color-text-secondary); margin-bottom: var(--spacing-sm);">KEY INSIGHT</div>
+                        <div style="font-size: 20px; font-weight: 600; color: var(--color-text-primary);">66% of users fall in the 25-44 age range, representing the core working professional demographic</div>
                     </div>
                 </div>
             </div>
