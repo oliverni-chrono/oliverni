@@ -128,6 +128,12 @@ body {
   margin-bottom: var(--spacing-xl);
 }
 
+.header-actions {
+  display: flex;
+  gap: var(--spacing-sm);
+  align-items: center;
+}
+
 .app-title {
   font-size: var(--font-size-2xl);
   font-weight: 700;
@@ -462,6 +468,118 @@ body {
 
 .hidden {
   display: none !important;
+}
+
+/* ===================================
+   PWA Install Prompt
+   =================================== */
+
+.install-prompt {
+  position: fixed;
+  top: 80px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: calc(100% - 48px);
+  max-width: 400px;
+  z-index: 1000;
+  animation: slideDown 0.3s ease-out;
+}
+
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateX(-50%) translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(-50%) translateY(0);
+  }
+}
+
+.install-content {
+  background: var(--color-primary);
+  color: white;
+  padding: 16px 20px;
+  border-radius: var(--radius-card);
+  box-shadow: 0 8px 16px rgba(59, 130, 246, 0.3);
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  position: relative;
+}
+
+.install-icon {
+  font-size: 24px;
+  flex-shrink: 0;
+}
+
+.install-text {
+  flex: 1;
+  font-size: 15px;
+  font-weight: 500;
+}
+
+.btn-install {
+  background: white;
+  color: var(--color-primary);
+  border: none;
+  padding: 8px 16px;
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: transform 0.15s ease;
+  flex-shrink: 0;
+}
+
+.btn-install:active {
+  transform: scale(0.95);
+}
+
+.btn-close {
+  position: absolute;
+  top: 4px;
+  right: 4px;
+  background: none;
+  border: none;
+  color: white;
+  font-size: 28px;
+  line-height: 1;
+  cursor: pointer;
+  padding: 4px 8px;
+  opacity: 0.7;
+  transition: opacity 0.15s ease;
+}
+
+.btn-close:hover {
+  opacity: 1;
+}
+
+.install-trigger {
+  position: relative;
+}
+
+.install-trigger::after {
+  content: '';
+  position: absolute;
+  top: -2px;
+  right: -2px;
+  width: 8px;
+  height: 8px;
+  background: var(--color-success);
+  border-radius: 50%;
+  animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+  0%, 100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.5;
+    transform: scale(1.2);
+  }
 }
 
 /* ===================================
