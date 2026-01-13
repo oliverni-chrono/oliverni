@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Campaign Dashboard | Netflix Style</title>
+  <link href="./dist/output.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --netflix-red: #E50914;
+      --netflix-red-dark: #B20710;
+      --netflix-black: #141414;
+      --netflix-gray: #808080;
+    }
+    
+    * { box-sizing: border-box; }
+    
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      background: var(--netflix-black);
+      color: #fff;
+      min-height: 100vh;
+      margin: 0;
+    }
+    
+    .bg-hero {
+      background: linear-gradient(to bottom, rgba(20,20,20,0.4) 0%, rgba(20,20,20,0.95) 100%),
+                  url('./assets/bg-dashboard.png') center/cover no-repeat;
+    }
+    
+    .netflix-red { color: var(--netflix-red); }
+    .bg-netflix-red { background: var(--netflix-red); }
+    
+    .card {
+      background: rgba(30, 30, 30, 0.8);
+      backdrop-filter: blur(12px);
+      border: 1px solid rgba(229, 9, 20, 0.2);
+      border-radius: 8px;
+      transition: all 0.3s ease;
+    }
+    
+    .card:hover {
+      border-color: rgba(229, 9, 20, 0.5);
+      transform: translateY(-4px);
+      box-shadow: 0 20px 40px rgba(229, 9, 20, 0.15);
+    }
+    
+    .stat-number {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 3.5rem;
+      line-height: 1;
+      background: linear-gradient(135deg, #fff 0%, var(--netflix-red) 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    
+    .progress-bar {
+      height: 6px;
+      background: rgba(255,255,255,0.1);
+      border-radius: 3px;
+      overflow: hidden;
+    }
+    
+    .progress-fill {
+      height: 100%;
+      background: linear-gradient(90deg, var(--netflix-red) 0%, #ff6b6b 100%);
+      border-radius: 3px;
+      animation: progressGrow 1.5s ease-out forwards;
+    }
+    
+    @keyframes progressGrow {
+      from { width: 0; }
+    }
+    
+    @keyframes fadeInUp {
+      from { opacity: 0; transform: translateY(30px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    
+    .animate-in {
+      animation: fadeInUp 0.6s ease-out forwards;
+    }
+    
+    .delay-1 { animation-delay: 0.1s; }
+    .delay-2 { animation-delay: 0.2s; }
+    .delay-3 { animation-delay: 0.3s; }
+    .delay-4 { animation-delay: 0.4s; }
+    
+    .glow-text {
+      text-shadow: 0 0 40px rgba(229, 9, 20, 0.5);
+    }
+    
+    .nav-logo {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 2rem;
+      letter-spacing: 2px;
+    }
+    
+    .btn-primary {
+      background: var(--netflix-red);
+      padding: 12px 28px;
+      border-radius: 4px;
+      font-weight: 600;
+      transition: all 0.2s ease;
+    }
+    
+    .btn-primary:hover {
+      background: var(--netflix-red-dark);
+      transform: scale(1.02);
+    }
+    
+    .btn-primary:active {
+      opacity: 0.8;
+      transform: scale(0.98);
+    }
+    
+    .campaign-row {
+      display: grid;
+      grid-template-columns: 1fr 120px 120px 100px 80px;
+      gap: 16px;
+      align-items: center;
+      padding: 16px 20px;
+      border-bottom: 1px solid rgba(255,255,255,0.05);
+      transition: background 0.2s ease;
+    }
+    
+    .campaign-row:hover {
+      background: rgba(229, 9, 20, 0.08);
+    }
+    
+    .status-live {
+      background: rgba(34, 197, 94, 0.2);
+      color: #22c55e;
+      padding: 4px 12px;
+      border-radius: 20px;
+      font-size: 0.75rem;
+      font-weight: 600;
+    }
+    
+    .status-paused {
+      background: rgba(251, 191, 36, 0.2);
+      color: #fbbf24;
+      padding: 4px 12px;
+      border-radius: 20px;
+      font-size: 0.75rem;
+      font-weight: 600;
+    }
+    
+    .status-ended {
+      background: rgba(255,255,255,0.1);
+      color: #888;
+      padding: 4px 12px;
+      border-radius: 20px;
+      font-size: 0.75rem;
+      font-weight: 600;
+    }
+    
+    @media (max-width: 768px) {
+      .campaign-row {
+        grid-template-columns: 1fr;
+        gap: 8px;
+      }
+      .stat-number {
+        font-size: 2.5rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Navigation -->
+  <nav class="fixed top-0 left-0 right-0 z-50 px-6 py-4" style="background: linear-gradient(to bottom, rgba(20,20,20,0.95), transparent);">
+    <div class="max-w-7xl mx-auto flex items-center justify-between">
+      <div class="flex items-center gap-8">
+        <span class="nav-logo netflix-red">CAMPAIGN</span>
+        <div class="hidden md:flex gap-6 text-sm text-gray-300">
+          <a href="#" class="hover:text-white transition">Dashboard</a>
+          <a href="#" class="hover:text-white transition">Campaigns</a>
+          <a href="#" class="hover:text-white transition">Analytics</a>
+          <a href="#" class="hover:text-white transition">Reports</a>
+        </div>
+      </div>
+      <button class="btn-primary text-sm">+ New Campaign</button>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <section class="bg-hero min-h-[50vh] pt-32 pb-16 px-6">
+    <div class="max-w-7xl mx-auto">
+      <h1 class="text-5xl md:text-7xl font-bold mb-4 glow-text animate-in" style="font-family: 'Bebas Neue', sans-serif; letter-spacing: 3px;">
+        Campaign <span class="netflix-red">Performance</span>
+      </h1>
+      <p class="text-gray-400 text-lg max-w-xl animate-in delay-1">
+        Real-time analytics and insights for all your marketing campaigns
+      </p>
+    </div>
+  </section>
+
+  <!-- Stats Grid -->
+  <section class="px-6 -mt-8 relative z-10">
+    <div class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+      <!-- Stat Card 1 -->
+      <div class="card p-6 animate-in delay-1">
+        <div class="text-gray-400 text-sm mb-2">Total Impressions</div>
+        <div class="stat-number">2.4M</div>
+        <div class="flex items-center gap-2 mt-3">
+          <span class="text-green-500 text-sm">↑ 12.5%</span>
+          <span class="text-gray-500 text-xs">vs last month</span>
+        </div>
+        <div class="progress-bar mt-4">
+          <div class="progress-fill" style="width: 78%;"></div>
+        </div>
+      </div>
+
+      <!-- Stat Card 2 -->
+      <div class="card p-6 animate-in delay-2">
+        <div class="text-gray-400 text-sm mb-2">Click-through Rate</div>
+        <div class="stat-number">4.8%</div>
+        <div class="flex items-center gap-2 mt-3">
+          <span class="text-green-500 text-sm">↑ 2.3%</span>
+          <span class="text-gray-500 text-xs">vs last month</span>
+        </div>
+        <div class="progress-bar mt-4">
+          <div class="progress-fill" style="width: 65%;"></div>
+        </div>
+      </div>
+
+      <!-- Stat Card 3 -->
+      <div class="card p-6 animate-in delay-3">
+        <div class="text-gray-400 text-sm mb-2">Conversions</div>
+        <div class="stat-number">18.2K</div>
+        <div class="flex items-center gap-2 mt-3">
+          <span class="text-red-500 text-sm">↓ 3.1%</span>
+          <span class="text-gray-500 text-xs">vs last month</span>
+        </div>
+        <div class="progress-bar mt-4">
+          <div class="progress-fill" style="width: 52%;"></div>
+        </div>
+      </div>
+
+      <!-- Stat Card 4 -->
+      <div class="card p-6 animate-in delay-4">
+        <div class="text-gray-400 text-sm mb-2">Revenue Generated</div>
+        <div class="stat-number">$847K</div>
+        <div class="flex items-center gap-2 mt-3">
+          <span class="text-green-500 text-sm">↑ 24.7%</span>
+          <span class="text-gray-500 text-xs">vs last month</span>
+        </div>
+        <div class="progress-bar mt-4">
+          <div class="progress-fill" style="width: 89%;"></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Campaign List -->
+  <section class="px-6 py-16">
+    <div class="max-w-7xl mx-auto">
+      <div class="flex items-center justify-between mb-8">
+        <h2 class="text-2xl font-bold">Active Campaigns</h2>
+        <div class="flex gap-3">
+          <button class="px-4 py-2 rounded bg-white/10 text-sm hover:bg-white/20 transition">Filter</button>
+          <button class="px-4 py-2 rounded bg-white/10 text-sm hover:bg-white/20 transition">Export</button>
+        </div>
+      </div>
+
+      <div class="card overflow-hidden">
+        <!-- Header -->
+        <div class="campaign-row text-gray-400 text-xs uppercase tracking-wider font-semibold" style="background: rgba(0,0,0,0.3);">
+          <div>Campaign Name</div>
+          <div>Impressions</div>
+          <div>Clicks</div>
+          <div>CTR</div>
+          <div>Status</div>
+        </div>
+
+        <!-- Campaign Rows -->
+        <div class="campaign-row">
+          <div>
+            <div class="font-semibold">Holiday Season 2024</div>
+            <div class="text-gray-500 text-sm">Started Dec 1, 2024</div>
+          </div>
+          <div class="font-mono">892,340</div>
+          <div class="font-mono">42,891</div>
+          <div class="font-mono netflix-red">4.81%</div>
+          <div><span class="status-live">LIVE</span></div>
+        </div>
+
+        <div class="campaign-row">
+          <div>
+            <div class="font-semibold">Brand Awareness Q4</div>
+            <div class="text-gray-500 text-sm">Started Nov 15, 2024</div>
+          </div>
+          <div class="font-mono">1,234,567</div>
+          <div class="font-mono">58,234</div>
+          <div class="font-mono netflix-red">4.72%</div>
+          <div><span class="status-live">LIVE</span></div>
+        </div>
+
+        <div class="campaign-row">
+          <div>
+            <div class="font-semibold">Product Launch - Series X</div>
+            <div class="text-gray-500 text-sm">Started Oct 20, 2024</div>
+          </div>
+          <div class="font-mono">456,789</div>
+          <div class="font-mono">21,456</div>
+          <div class="font-mono">4.70%</div>
+          <div><span class="status-paused">PAUSED</span></div>
+        </div>
+
+        <div class="campaign-row">
+          <div>
+            <div class="font-semibold">Summer Promo 2024</div>
+            <div class="text-gray-500 text-sm">Jun 1 - Aug 31, 2024</div>
+          </div>
+          <div class="font-mono">2,345,678</div>
+          <div class="font-mono">112,345</div>
+          <div class="font-mono">4.79%</div>
+          <div><span class="status-ended">ENDED</span></div>
+        </div>
+
+        <div class="campaign-row">
+          <div>
+            <div class="font-semibold">New User Acquisition</div>
+            <div class="text-gray-500 text-sm">Started Sep 1, 2024</div>
+          </div>
+          <div class="font-mono">678,901</div>
+          <div class="font-mono">34,567</div>
+          <div class="font-mono netflix-red">5.09%</div>
+          <div><span class="status-live">LIVE</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="px-6 py-8 border-t border-white/5">
+    <div class="max-w-7xl mx-auto flex items-center justify-between text-gray-500 text-sm">
+      <span>© 2024 Campaign Dashboard</span>
+      <span>Powered by Netflix-style UI</span>
+    </div>
+  </footer>
+</body>
+</html>

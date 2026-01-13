@@ -1,0 +1,27 @@
+# Dependencies
+node_modules/
+package-lock.json
+
+# IDE
+.DS_Store
+.cursor/
+.vscode/
+.idea/
+
+# Build outputs
+dist/
+build/
+
+# Logs
+*.log
+
+# PDF files (optional, keep for local use)
+*.pdf
+
+
+
+
+
+
+
+

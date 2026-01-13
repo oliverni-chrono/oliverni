@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Projects - oliverni-chrono</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'PingFang SC', sans-serif;
+            background: linear-gradient(135deg, #0A0A0F 0%, #1A1A2E 100%);
+            color: #F5F5F7;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 800px;
+            width: 100%;
+        }
+
+        h1 {
+            font-size: 48px;
+            font-weight: 300;
+            margin-bottom: 16px;
+            text-align: center;
+            background: linear-gradient(135deg, #F5F5F7, #9333EA);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .subtitle {
+            text-align: center;
+            font-size: 18px;
+            color: #A8A8B8;
+            margin-bottom: 64px;
+        }
+
+        .projects {
+            display: grid;
+            gap: 24px;
+        }
+
+        .project-card {
+            background: rgba(26, 26, 46, 0.8);
+            border: 1px solid #2D2D44;
+            border-radius: 16px;
+            padding: 32px;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            color: inherit;
+            display: block;
+        }
+
+        .project-card:hover {
+            transform: translateY(-4px);
+            border-color: #9333EA;
+            box-shadow: 0 8px 32px rgba(147, 51, 234, 0.3);
+        }
+
+        .project-icon {
+            font-size: 48px;
+            margin-bottom: 16px;
+        }
+
+        .project-title {
+            font-size: 24px;
+            font-weight: 600;
+            margin-bottom: 8px;
+            color: #F59E0B;
+        }
+
+        .project-description {
+            font-size: 16px;
+            color: #A8A8B8;
+            line-height: 1.6;
+        }
+
+        .footer {
+            margin-top: 64px;
+            text-align: center;
+            font-size: 14px;
+            color: #666;
+        }
+
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 36px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Projects</h1>
+        <p class="subtitle">✨ Welcome to oliverni-chrono's workspace</p>
+
+        <div class="projects">
+            <a href="oliver-summary/" class="project-card">
+                <div class="project-icon">🌙</div>
+                <h2 class="project-title">Oliver Ni - 个人介绍</h2>
+                <p class="project-description">
+                    正在学习中..
+                </p>
+            </a>
+
+            <a href="godgpt-performance/" class="project-card">
+                <div class="project-icon">
+                    <img src="godgpt-performance/logo.png?v=2" alt="GodGPT" style="width: 120px; height: auto; object-fit: contain;">
+                </div>
+                <h2 class="project-title">GodGPT Project</h2>
+                <p class="project-description">
+                    Ad Creative Performance Dashboard - MTD 2025
+                </p>
+            </a>
+
+        </div>
+
+        <div class="footer">
+            <p>Created with 🌌 cosmic energy · 2024</p>
+        </div>
+    </div>
+</body>
+</html>

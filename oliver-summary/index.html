@@ -1,0 +1,537 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Oliver Ni - 自我介绍</title>
+    <style>
+        :root {
+            --color-primary: #9333EA;
+            --color-secondary: #D946EF;
+            --color-accent: #F59E0B;
+            --color-background: #0A0A0F;
+            --color-surface: #1A1A2E;
+            --color-surface-elevated: #252540;
+            --color-text-primary: #F5F5F7;
+            --color-text-secondary: #A8A8B8;
+            --color-border: #2D2D44;
+            
+            --spacing-xs: 4px;
+            --spacing-sm: 8px;
+            --spacing-md: 16px;
+            --spacing-lg: 24px;
+            --spacing-xl: 32px;
+            --spacing-2xl: 48px;
+            --spacing-3xl: 64px;
+            --spacing-4xl: 80px;
+            
+            --font-primary: -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'PingFang SC', 'Microsoft YaHei', sans-serif;
+            --font-display: 'Georgia', 'Songti SC', serif;
+            
+            --radius-md: 12px;
+            --radius-lg: 16px;
+            --radius-xl: 24px;
+            
+            --shadow-sm: 0 2px 8px rgba(147, 51, 234, 0.1);
+            --shadow-md: 0 4px 16px rgba(147, 51, 234, 0.2);
+            --shadow-lg: 0 8px 32px rgba(147, 51, 234, 0.3);
+            --shadow-glow: 0 0 40px rgba(217, 70, 239, 0.4);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: var(--font-primary);
+            background: var(--color-background);
+            color: var(--color-text-primary);
+            overflow-x: hidden;
+            line-height: 1.6;
+        }
+
+        /* Animated Background */
+        .background {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 0;
+            overflow: hidden;
+        }
+
+        .stars {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(2px 2px at 20% 30%, white, transparent),
+                        radial-gradient(2px 2px at 60% 70%, white, transparent),
+                        radial-gradient(1px 1px at 50% 50%, white, transparent),
+                        radial-gradient(1px 1px at 80% 10%, white, transparent),
+                        radial-gradient(2px 2px at 90% 60%, white, transparent),
+                        radial-gradient(1px 1px at 33% 80%, white, transparent);
+            background-size: 200% 200%;
+            animation: twinkle 8s ease-in-out infinite;
+            opacity: 0.5;
+        }
+
+        @keyframes twinkle {
+            0%, 100% { opacity: 0.5; }
+            50% { opacity: 0.8; }
+        }
+
+        .gradient-orb {
+            position: absolute;
+            border-radius: 50%;
+            filter: blur(80px);
+            opacity: 0.3;
+            animation: float 20s ease-in-out infinite;
+        }
+
+        .orb-1 {
+            width: 400px;
+            height: 400px;
+            background: var(--color-primary);
+            top: -200px;
+            right: -100px;
+        }
+
+        .orb-2 {
+            width: 300px;
+            height: 300px;
+            background: var(--color-secondary);
+            bottom: -150px;
+            left: -100px;
+            animation-delay: -10s;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translate(0, 0) scale(1); }
+            33% { transform: translate(30px, -50px) scale(1.1); }
+            66% { transform: translate(-20px, 30px) scale(0.9); }
+        }
+
+        /* Content Container */
+        .container {
+            position: relative;
+            z-index: 1;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: var(--spacing-4xl) var(--spacing-lg);
+        }
+
+        .hero-avatar {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--color-primary), var(--color-secondary));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 48px;
+            margin-bottom: var(--spacing-xl);
+            box-shadow: var(--shadow-glow);
+            animation: fadeInUp 0.8s ease-out;
+        }
+
+        .hero-title {
+            font-family: var(--font-display);
+            font-size: 56px;
+            font-weight: 300;
+            margin-bottom: var(--spacing-md);
+            background: linear-gradient(135deg, var(--color-text-primary), var(--color-secondary));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            animation: fadeInUp 0.8s ease-out 0.2s backwards;
+        }
+
+        .hero-subtitle {
+            font-size: 20px;
+            color: var(--color-text-secondary);
+            margin-bottom: var(--spacing-2xl);
+            animation: fadeInUp 0.8s ease-out 0.4s backwards;
+        }
+
+        .hero-divider {
+            width: 60px;
+            height: 2px;
+            background: linear-gradient(90deg, transparent, var(--color-accent), transparent);
+            margin-bottom: var(--spacing-2xl);
+            animation: fadeInUp 0.8s ease-out 0.6s backwards;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Cards Section */
+        .cards-section {
+            padding: var(--spacing-4xl) var(--spacing-lg);
+        }
+
+        .cards-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: var(--spacing-xl);
+            margin-bottom: var(--spacing-4xl);
+        }
+
+        .card {
+            background: var(--color-surface);
+            border-radius: var(--radius-lg);
+            padding: var(--spacing-xl);
+            border: 1px solid var(--color-border);
+            box-shadow: var(--shadow-md);
+            transition: all 0.3s ease;
+            opacity: 0;
+            animation: fadeInUp 0.8s ease-out forwards;
+        }
+
+        .card:nth-child(1) { animation-delay: 0.8s; }
+        .card:nth-child(2) { animation-delay: 1s; }
+        .card:nth-child(3) { animation-delay: 1.2s; }
+
+        .card:hover {
+            transform: translateY(-8px);
+            box-shadow: var(--shadow-lg);
+            border-color: var(--color-primary);
+        }
+
+        .card-icon {
+            font-size: 64px;
+            margin-bottom: var(--spacing-lg);
+            display: block;
+            text-align: center;
+            filter: drop-shadow(0 4px 12px rgba(147, 51, 234, 0.4));
+        }
+
+        .card-title {
+            font-size: 28px;
+            font-weight: 600;
+            margin-bottom: var(--spacing-md);
+            color: var(--color-accent);
+            text-align: center;
+        }
+
+        .card-content {
+            font-size: 16px;
+            line-height: 1.8;
+            color: var(--color-text-secondary);
+        }
+
+        .card-label {
+            display: inline-block;
+            font-size: 14px;
+            font-weight: 600;
+            color: var(--color-primary);
+            margin-bottom: var(--spacing-sm);
+        }
+
+        .card-value {
+            font-size: 18px;
+            color: var(--color-text-primary);
+            margin-bottom: var(--spacing-lg);
+        }
+
+        .card-description {
+            padding-top: var(--spacing-lg);
+            border-top: 1px solid var(--color-border);
+            font-size: 15px;
+            line-height: 1.8;
+        }
+
+        /* Bazi Grid */
+        .bazi-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: var(--spacing-md);
+            margin-bottom: var(--spacing-lg);
+        }
+
+        .bazi-pillar {
+            background: var(--color-surface-elevated);
+            border-radius: var(--radius-md);
+            padding: var(--spacing-lg);
+            text-align: center;
+            border: 1px solid var(--color-border);
+        }
+
+        .bazi-pillar-title {
+            font-size: 12px;
+            color: var(--color-text-secondary);
+            margin-bottom: var(--spacing-sm);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .bazi-pillar-value {
+            font-size: 24px;
+            font-weight: 600;
+            color: var(--color-accent);
+            font-family: var(--font-display);
+        }
+
+        .bazi-element {
+            font-size: 13px;
+            color: var(--color-text-secondary);
+            margin-top: var(--spacing-xs);
+        }
+
+        /* Footer */
+        .footer {
+            text-align: center;
+            padding: var(--spacing-4xl) var(--spacing-lg);
+            color: var(--color-text-secondary);
+            font-size: 14px;
+        }
+
+        .footer-divider {
+            width: 100px;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, var(--color-border), transparent);
+            margin: 0 auto var(--spacing-lg);
+        }
+
+        /* Desktop Styles */
+        @media (min-width: 768px) {
+            .container {
+                padding: 0 40px;
+            }
+
+            .hero-title {
+                font-size: 72px;
+            }
+
+            .hero-subtitle {
+                font-size: 24px;
+            }
+
+            .cards-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+
+        @media (max-width: 767px) {
+            .bazi-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        /* Accessibility */
+        @media (prefers-reduced-motion: reduce) {
+            *, *::before, *::after {
+                animation-duration: 0.01ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: 0.01ms !important;
+            }
+        }
+
+        /* Print Styles */
+        @media print {
+            * {
+                -webkit-print-color-adjust: exact !important;
+                print-color-adjust: exact !important;
+            }
+
+            body {
+                background: var(--color-background);
+            }
+
+            .background {
+                display: none;
+            }
+
+            .hero {
+                min-height: auto;
+                padding: 40px 20px;
+                page-break-after: avoid;
+            }
+
+            .hero-title {
+                font-size: 48px;
+            }
+
+            .cards-section {
+                padding: 20px;
+            }
+
+            .cards-grid {
+                page-break-inside: avoid;
+            }
+
+            .card {
+                page-break-inside: avoid;
+                break-inside: avoid;
+                opacity: 1 !important;
+                transform: none !important;
+                animation: none !important;
+                margin-bottom: 20px;
+            }
+
+            .footer {
+                padding: 20px;
+                page-break-before: avoid;
+            }
+
+            @page {
+                margin: 1.5cm;
+                size: A4 portrait;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Animated Background -->
+    <div class="background">
+        <div class="stars"></div>
+        <div class="gradient-orb orb-1"></div>
+        <div class="gradient-orb orb-2"></div>
+    </div>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-avatar">✨</div>
+        <h1 class="hero-title">Oliver Ni</h1>
+        <p class="hero-subtitle">探索星辰，感知命运，书写人生</p>
+        <div class="hero-divider"></div>
+    </section>
+
+    <!-- Cards Section -->
+    <section class="cards-section">
+        <div class="container">
+            <div class="cards-grid">
+                <!-- 星座卡片 -->
+                <div class="card">
+                    <span class="card-icon">♋</span>
+                    <h2 class="card-title">巨蟹座</h2>
+                    <div class="card-content">
+                        <div class="card-label">出生日期</div>
+                        <div class="card-value">6月27日</div>
+                        
+                        <div class="card-description">
+                            <strong>守护星：</strong>月亮 🌙<br>
+                            <strong>元素：</strong>水象星座<br>
+                            <strong>性格特质：</strong>温柔体贴、直觉敏锐、重视家庭、情感丰富、富有同情心、保护欲强。巨蟹座的人如同温暖的港湾，总能给予他人安全感。
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 属相卡片 -->
+                <div class="card">
+                    <span class="card-icon">🐓</span>
+                    <h2 class="card-title">生肖鸡</h2>
+                    <div class="card-content">
+                        <div class="card-label">出生年份</div>
+                        <div class="card-value">1993 癸酉年</div>
+                        
+                        <div class="card-description">
+                            <strong>五行：</strong>水鸡（剑锋金命）<br>
+                            <strong>性格特质：</strong>观察敏锐、做事精准、诚实坦率、勤奋自信、注重细节、善于规划。属鸡的人天生具有责任感，追求完美，做事有条不紊。
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 八字卡片 -->
+                <div class="card">
+                    <span class="card-icon">☯️</span>
+                    <h2 class="card-title">生辰八字</h2>
+                    <div class="card-content">
+                        <div class="card-label">出生时辰</div>
+                        <div class="card-value">1993年6月27日 18:00</div>
+                        
+                        <div class="bazi-grid">
+                            <div class="bazi-pillar">
+                                <div class="bazi-pillar-title">年柱</div>
+                                <div class="bazi-pillar-value">癸酉</div>
+                                <div class="bazi-element">水金</div>
+                            </div>
+                            <div class="bazi-pillar">
+                                <div class="bazi-pillar-title">月柱</div>
+                                <div class="bazi-pillar-value">戊午</div>
+                                <div class="bazi-element">土火</div>
+                            </div>
+                            <div class="bazi-pillar">
+                                <div class="bazi-pillar-title">日柱</div>
+                                <div class="bazi-pillar-value">己巳</div>
+                                <div class="bazi-element">土火</div>
+                            </div>
+                            <div class="bazi-pillar">
+                                <div class="bazi-pillar-title">时柱</div>
+                                <div class="bazi-pillar-value">癸酉</div>
+                                <div class="bazi-element">水金</div>
+                            </div>
+                        </div>
+                        
+                        <div class="card-description">
+                            <strong>五行分析：</strong>五行平衡，土火为主，金水辅助，大地在夏日中温暖而肥沃<br>
+                            <strong>命格特点：</strong>日主己土生于午月，火土相生，如沃土得阳，性格温和务实，脚踏实地，具有包容心和稳重品质，善于培育和成就他人
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-divider"></div>
+        <p>✨ 命运由星辰指引，人生由自己书写 ✨</p>
+        <p style="margin-top: 12px; font-size: 12px; opacity: 0.6;">
+            Created with cosmic energy · 2024
+        </p>
+    </footer>
+
+    <script>
+        // Smooth scroll reveal animation
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.card').forEach(card => {
+            observer.observe(card);
+        });
+
+        // Dynamic time-based greeting
+        const hour = new Date().getHours();
+        let greeting = '✨';
+        if (hour >= 5 && hour < 12) greeting = '🌅';
+        else if (hour >= 12 && hour < 18) greeting = '☀️';
+        else if (hour >= 18 && hour < 22) greeting = '🌙';
+        else greeting = '⭐';
+        
+        document.querySelector('.hero-avatar').textContent = greeting;
+    </script>
+</body>
+</html>

@@ -1,0 +1,722 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CEO Update Deck - Marketing Performance Review</title>
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', sans-serif;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    .deck-container {
+      width: 100vw;
+      height: 100vh;
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .slide-wrapper {
+      width: 90%;
+      max-width: 1200px;
+      height: 80vh;
+      background: white;
+      border-radius: 20px;
+      box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+      padding: 60px;
+      overflow-y: auto;
+      animation: slideIn 0.5s ease-out;
+    }
+
+    @keyframes slideIn {
+      from {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .slide {
+      display: none;
+    }
+
+    .slide.active {
+      display: block;
+    }
+
+    /* Title Slide */
+    .title-slide {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100%;
+      text-align: center;
+    }
+
+    .title-slide h1 {
+      font-size: 3.5rem;
+      color: #667eea;
+      margin-bottom: 1rem;
+      font-weight: 800;
+    }
+
+    .title-slide h2 {
+      font-size: 2rem;
+      color: #4a5568;
+      margin-bottom: 2rem;
+      font-weight: 600;
+    }
+
+    .title-slide .date {
+      font-size: 1.5rem;
+      color: #718096;
+      font-weight: 500;
+    }
+
+    /* Content Slide */
+    .content-slide h2 {
+      font-size: 2.5rem;
+      color: #2d3748;
+      margin-bottom: 1rem;
+      border-bottom: 4px solid #667eea;
+      padding-bottom: 0.5rem;
+    }
+
+    .cn-subtitle {
+      font-size: 1.5rem;
+      color: #718096;
+      margin-bottom: 2rem;
+      font-weight: 400;
+    }
+
+    /* Metrics Grid */
+    .metrics-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 2rem;
+      margin-top: 2rem;
+    }
+
+    .metric-card {
+      background: white;
+      padding: 2rem;
+      border-radius: 15px;
+      border: 3px solid #667eea;
+      text-align: center;
+      box-shadow: 0 10px 30px rgba(102, 126, 234, 0.2);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .metric-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 15px 40px rgba(102, 126, 234, 0.3);
+      border-color: #764ba2;
+    }
+
+    .metric-label {
+      font-size: 1rem;
+      margin-bottom: 1rem;
+      color: #4a5568;
+      font-weight: 600;
+    }
+
+    .metric-value {
+      font-size: 3rem;
+      font-weight: 800;
+      margin-bottom: 0.5rem;
+      color: #667eea;
+      text-shadow: 0 2px 10px rgba(102, 126, 234, 0.2);
+    }
+
+    .metric-subtitle {
+      font-size: 0.9rem;
+      color: #718096;
+      font-weight: 500;
+    }
+
+    /* Wins Container */
+    .wins-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(450px, 1fr));
+      gap: 2rem;
+      margin: 2rem 0;
+    }
+
+    .highlight-box {
+      background: #f7fafc;
+      padding: 2.5rem;
+      border-radius: 20px;
+      border-left: 5px solid #667eea;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+      transition: transform 0.3s ease;
+    }
+
+    .highlight-box:hover {
+      transform: translateY(-5px);
+    }
+
+    .highlight-box.success {
+      border-left-color: #48bb78;
+      background: linear-gradient(135deg, #f0fff4 0%, #c6f6d5 100%);
+      border: 3px solid #48bb78;
+      border-left-width: 6px;
+    }
+
+    .highlight-box h3 {
+      font-size: 1.5rem;
+      margin-bottom: 1.5rem;
+      color: #2d3748;
+      font-weight: 700;
+    }
+
+    .big-number {
+      font-size: 4.5rem;
+      font-weight: 900;
+      color: #48bb78;
+      margin: 1.5rem 0;
+      text-shadow: 0 2px 10px rgba(72, 187, 120, 0.2);
+    }
+
+    .highlight-box p {
+      font-size: 1.1rem;
+      line-height: 1.8;
+      color: #2d3748;
+      margin-bottom: 0.5rem;
+    }
+
+    .cn-text {
+      color: #4a5568;
+      font-size: 1rem;
+    }
+
+    /* Lumen Compact */
+    .lumen-compact {
+      margin-top: 2rem;
+    }
+
+    .lumen-investment-compact {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 1.5rem;
+      margin-bottom: 2rem;
+      padding: 1.5rem;
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      border-radius: 20px;
+      color: white;
+    }
+
+    .investment-badge {
+      font-size: 3rem;
+      font-weight: 900;
+      text-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+    }
+
+    .lumen-metrics-compact {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.5rem;
+      margin-bottom: 2rem;
+    }
+
+    .metric-compact {
+      background: #f7fafc;
+      padding: 1.5rem;
+      border-radius: 15px;
+      text-align: center;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+    }
+
+    .metric-num {
+      font-size: 2.5rem;
+      font-weight: 800;
+      color: #667eea;
+      margin-bottom: 0.5rem;
+    }
+
+    .metric-label {
+      font-size: 0.95rem;
+      color: #4a5568;
+    }
+
+    .action-btn-group {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1.5rem;
+    }
+
+    .action-btn {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      padding: 1.5rem;
+      border: none;
+      border-radius: 15px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    }
+
+    .action-btn.primary {
+      background: linear-gradient(135deg, #48bb78 0%, #38a169 100%);
+      color: white;
+    }
+
+    .action-btn.secondary {
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      color: white;
+    }
+
+    .action-btn:hover {
+      transform: translateY(-3px);
+    }
+
+    .btn-icon {
+      font-size: 2.5rem;
+    }
+
+    .btn-content {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      text-align: left;
+    }
+
+    .btn-content strong {
+      font-size: 1.2rem;
+      margin-bottom: 0.3rem;
+    }
+
+    .btn-content span {
+      font-size: 0.9rem;
+      opacity: 0.9;
+    }
+
+    /* Takeaways Compact */
+    .takeaways-compact-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 2rem;
+      margin: 2rem 0;
+    }
+
+    .compact-section {
+      padding: 2rem;
+      border-radius: 20px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    }
+
+    .wins-section {
+      background: linear-gradient(135deg, #f0fff4 0%, #c6f6d5 100%);
+      border: 3px solid #48bb78;
+    }
+
+    .improve-section {
+      background: linear-gradient(135deg, #fef5e7 0%, #fad7a0 100%);
+      border: 3px solid #f39c12;
+    }
+
+    .section-title {
+      font-size: 1.5rem;
+      margin-bottom: 1.5rem;
+      color: #2d3748;
+      font-weight: 700;
+    }
+
+    .compact-items {
+      display: flex;
+      flex-direction: column;
+      gap: 0.75rem;
+    }
+
+    .compact-item {
+      background: white;
+      padding: 0.75rem 1rem;
+      border-radius: 10px;
+      font-size: 1rem;
+      font-weight: 600;
+      color: #2d3748;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+    }
+
+    .strategic-actions-visual {
+      margin-top: 2.5rem;
+      padding: 2rem;
+      background: #f7fafc;
+      border-radius: 20px;
+    }
+
+    .action-header {
+      font-size: 1.5rem;
+      color: #2d3748;
+      margin-bottom: 1.5rem;
+      text-align: center;
+    }
+
+    .action-buttons-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.5rem;
+    }
+
+    .strategic-btn {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.75rem;
+      padding: 1.5rem;
+      background: white;
+      border: 2px solid #e2e8f0;
+      border-radius: 15px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+
+    .strategic-btn:hover {
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      color: white;
+      transform: translateY(-5px);
+    }
+
+    .btn-emoji {
+      font-size: 2.5rem;
+    }
+
+    .strategic-btn strong {
+      font-size: 1.1rem;
+    }
+
+    .btn-sub {
+      font-size: 0.85rem;
+      opacity: 0.8;
+    }
+
+    .metrics-to-watch {
+      margin-top: 2rem;
+      padding: 1.5rem;
+      background: linear-gradient(135deg, #e0f2fe 0%, #bae6fd 100%);
+      border-radius: 15px;
+      text-align: center;
+    }
+
+    /* Controls */
+    .controls {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 2rem;
+      margin-top: 2rem;
+    }
+
+    .nav-btn {
+      background: white;
+      border: none;
+      padding: 1rem 2rem;
+      border-radius: 10px;
+      font-size: 1rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    }
+
+    .nav-btn:hover:not(:disabled) {
+      background: #667eea;
+      color: white;
+      transform: translateY(-2px);
+    }
+
+    .nav-btn:disabled {
+      opacity: 0.3;
+      cursor: not-allowed;
+    }
+
+    .slide-counter {
+      background: white;
+      padding: 0.75rem 1.5rem;
+      border-radius: 10px;
+      font-weight: 600;
+      color: #2d3748;
+    }
+
+    .closing-slide {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100%;
+      text-align: center;
+    }
+
+    .closing-slide h2 {
+      font-size: 3rem;
+      color: #667eea;
+      margin-bottom: 1rem;
+      border: none;
+    }
+
+    .big-text {
+      font-size: 1.8rem;
+      line-height: 1.6;
+      color: #2d3748;
+      margin-bottom: 1rem;
+    }
+
+    .closing-cta {
+      margin-top: 3rem;
+      padding: 2rem;
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      border-radius: 15px;
+      color: white;
+    }
+  </style>
+</head>
+<body>
+  <div class="deck-container">
+    <div class="slide-wrapper" id="slideContainer"></div>
+    
+    <div class="controls">
+      <button onclick="prevSlide()" id="prevBtn" class="nav-btn">← Previous</button>
+      <div class="slide-counter" id="counter">1 / 8</div>
+      <button onclick="nextSlide()" id="nextBtn" class="nav-btn">Next →</button>
+    </div>
+  </div>
+
+  <script>
+    let currentSlide = 0;
+    const slides = [
+      // Slide 0: Title
+      `<div class="title-slide">
+        <h1>📊 Marketing Performance Review</h1>
+        <h2>Weekly CEO Update | 本周营销表现回顾</h2>
+        <div class="date">December 2025</div>
+      </div>`,
+
+      // Slide 1: Financial Overview
+      `<div class="content-slide">
+        <h2>💰 Financial Overview | 财务概览</h2>
+        <div class="metrics-grid">
+          <div class="metric-card">
+            <div class="metric-label">YTD Total Spend | 年度总花费</div>
+            <div class="metric-value">$95,955</div>
+          </div>
+          <div class="metric-card">
+            <div class="metric-label">Weekly Spend | 本周花费</div>
+            <div class="metric-value">$6,258</div>
+          </div>
+          <div class="metric-card">
+            <div class="metric-label">Weekly Revenue from Ads | 广告周收入</div>
+            <div class="metric-value">$171</div>
+            <div class="metric-subtitle">35% of total weekly revenue $492</div>
+          </div>
+        </div>
+      </div>`,
+
+      // Slide 2: What We Did Well
+      `<div class="content-slide">
+        <h2>🎯 What We Did Well | 我们做得好的地方</h2>
+        <div class="wins-container">
+          <div class="highlight-box success">
+            <h3>🚀 Total Follower Milestone | 总粉丝里程碑</h3>
+            <div class="big-number">25K Total Followers</div>
+            <p>TikTok Follower Ads contributed <strong>97%</strong> of total followers</p>
+            <p class="cn-text">TikTok粉丝广告贡献了 <strong>97%</strong> 的总粉丝增长</p>
+          </div>
+          <div class="highlight-box success">
+            <h3>📱 App Install Impact | 应用安装影响</h3>
+            <div class="big-number">50%</div>
+            <p>Indirect contribution to direct GodGPT app installs</p>
+            <p class="cn-text">间接贡献直接GodGPT应用安装</p>
+          </div>
+        </div>
+      </div>`,
+
+      // Slide 3: Key Challenges
+      `<div class="content-slide">
+        <h2>🔍 Key Challenges & Actions | 关键挑战与行动</h2>
+        <div style="display: grid; gap: 1.5rem; margin-top: 2rem;">
+          <div style="background: #f7fafc; padding: 1.5rem; border-radius: 15px; border-left: 5px solid #667eea;">
+            <div style="display: flex; align-items: center; gap: 1rem; margin-bottom: 1rem;">
+              <span style="font-size: 2rem;">💰</span>
+              <h3 style="font-size: 1.3rem; color: #2d3748; margin: 0;">ROAS Not Scaling | ROAS未上涨</h3>
+            </div>
+            <p style="color: #e53e3e; margin-bottom: 0.75rem;">Growth not converting to revenue | 增长未转化为收入</p>
+            <p style="color: #2d3748;">→ Shift to <strong style="color: #48bb78;">In-App Purchase</strong> campaigns + Retarget 30-day users</p>
+          </div>
+          
+          <div style="background: #f7fafc; padding: 1.5rem; border-radius: 15px; border-left: 5px solid #667eea;">
+            <div style="display: flex; align-items: center; gap: 1rem; margin-bottom: 1rem;">
+              <span style="font-size: 2rem;">🌏</span>
+              <h3 style="font-size: 1.3rem; color: #2d3748; margin: 0;">SEA Market Quality | 东南亚市场质量</h3>
+            </div>
+            <p style="color: #e53e3e; margin-bottom: 0.75rem;">ID/PH: High clicks, CVR only 20% of US/SG | 转化率仅20%</p>
+            <p style="color: #2d3748;">→ Shift focus to <strong style="color: #48bb78;">US/SG/MY</strong> markets + Monitor EU/AU</p>
+          </div>
+          
+          <div style="background: #f7fafc; padding: 1.5rem; border-radius: 15px; border-left: 5px solid #667eea;">
+            <div style="display: flex; align-items: center; gap: 1rem; margin-bottom: 1rem;">
+              <span style="font-size: 2rem;">📊</span>
+              <h3 style="font-size: 1.3rem; color: #2d3748; margin: 0;">Subscription Growth | 订阅增长停滞</h3>
+            </div>
+            <p style="color: #e53e3e; margin-bottom: 0.75rem;">Users not converting to subscribers | 用户未转化为订阅</p>
+            <p style="color: #2d3748;">→ Scale <strong style="color: #48bb78;">Carousel ads</strong> (outperform video) + Strong CTA A/B tests</p>
+          </div>
+        </div>
+      </div>`,
+
+      // Slide 4: Lumen
+      `<div class="content-slide">
+        <h2>💎 Lumen Updates & Optimization | Lumen更新与优化</h2>
+        <div class="lumen-compact">
+          <div class="lumen-investment-compact">
+            <div class="investment-badge">$3,800</div>
+            <span>60% of weekly spend | 本周60%预算</span>
+          </div>
+          
+          <div class="lumen-metrics-compact">
+            <div class="metric-compact">
+              <div class="metric-num">138K</div>
+              <div class="metric-label">Landing views | 落地页</div>
+            </div>
+            <div class="metric-compact">
+              <div class="metric-num">2.2K</div>
+              <div class="metric-label">Followers | 粉丝</div>
+            </div>
+            <div class="metric-compact">
+              <div class="metric-num">125</div>
+              <div class="metric-label">Signups | 注册</div>
+            </div>
+          </div>
+          
+          <div class="action-btn-group">
+            <button class="action-btn primary">
+              <span class="btn-icon">🎯</span>
+              <div class="btn-content">
+                <strong>Shift to SG/MY/US</strong>
+                <span>High-converting markets | 高转化市场</span>
+              </div>
+            </button>
+            <button class="action-btn secondary">
+              <span class="btn-icon">📸</span>
+              <div class="btn-content">
+                <strong>Add Strong CTA Assets</strong>
+                <span>Improve signup CVR | 提升注册转化</span>
+              </div>
+            </button>
+          </div>
+        </div>
+      </div>`,
+
+      // Slide 5: Key Takeaways
+      `<div class="content-slide">
+        <h2>🎯 Key Takeaways & Next Steps | 核心要点与行动</h2>
+        
+        <div class="takeaways-compact-grid">
+          <div class="compact-section wins-section">
+            <h3 class="section-title">✅ Wins | 成功</h3>
+            <div class="compact-items">
+              <div class="compact-item">25K Followers | TikTok增长</div>
+              <div class="compact-item">Best Channels | 渠道优化</div>
+              <div class="compact-item">Carousel > Video | 内容洞察</div>
+              <div class="compact-item">Lumen Brand | 品牌建设</div>
+            </div>
+          </div>
+          
+          <div class="compact-section improve-section">
+            <h3 class="section-title">🔄 Focus | 聚焦</h3>
+            <div class="compact-items">
+              <div class="compact-item">In-App Purchase | 应用内购</div>
+              <div class="compact-item">US/SG/MY Markets | 高质量市场</div>
+              <div class="compact-item">Strong CTA Ads | 强CTA广告</div>
+              <div class="compact-item">Retarget Users | 重定向用户</div>
+            </div>
+          </div>
+        </div>
+        
+        <div class="strategic-actions-visual">
+          <h3 class="action-header">📋 Next Week Actions | 下周行动</h3>
+          <div class="action-buttons-grid">
+            <button class="strategic-btn">
+              <span class="btn-emoji">🤖</span>
+              <strong>Data Automation</strong>
+              <span class="btn-sub">API Integration | API对接</span>
+            </button>
+            <button class="strategic-btn">
+              <span class="btn-emoji">🔍</span>
+              <strong>Competitor Monitor</strong>
+              <span class="btn-sub">Icon Tracking | 竞品监控</span>
+            </button>
+            <button class="strategic-btn">
+              <span class="btn-emoji">✨</span>
+              <strong>AI Content</strong>
+              <span class="btn-sub">Gemini + n8n | AI生成</span>
+            </button>
+          </div>
+        </div>
+        
+        <div class="metrics-to-watch">
+          <h4>📈 Monitor: ROAS · Form Submissions · Subscription Rate · Cost/Signup</h4>
+        </div>
+      </div>`,
+
+      // Slide 6: Closing
+      `<div class="closing-slide">
+        <h2>🌌 From Growth to Profitability</h2>
+        <h3 class="cn-subtitle">从增长转向盈利</h3>
+        <div class="closing-message">
+          <p class="big-text">
+            By focusing on conversion, optimizing markets,<br/>
+            and scaling what works
+          </p>
+          <p class="big-text cn-text">
+            通过聚焦转化、优化市场、扩大成功素材
+          </p>
+          <div class="closing-cta">
+            <p style="font-size: 1.5rem; margin-bottom: 0.5rem;">Let's align and resonate forward</p>
+            <p style="font-size: 1.2rem; opacity: 0.9;">让我们对齐并共振前行</p>
+          </div>
+        </div>
+      </div>`
+    ];
+
+    function showSlide(n) {
+      currentSlide = n;
+      document.getElementById('slideContainer').innerHTML = slides[n];
+      document.getElementById('counter').textContent = `${n + 1} / ${slides.length}`;
+      document.getElementById('prevBtn').disabled = n === 0;
+      document.getElementById('nextBtn').disabled = n === slides.length - 1;
+    }
+
+    function nextSlide() {
+      if (currentSlide < slides.length - 1) showSlide(currentSlide + 1);
+    }
+
+    function prevSlide() {
+      if (currentSlide > 0) showSlide(currentSlide - 1);
+    }
+
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'ArrowRight' || e.key === ' ') nextSlide();
+      if (e.key === 'ArrowLeft') prevSlide();
+    });
+
+    showSlide(0);
+  </script>
+</body>
+</html>
